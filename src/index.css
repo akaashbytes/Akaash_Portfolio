@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #050505;
+    color: #ffffff;
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  }
+  
+  body {
+    overflow-x: hidden;
+    background-color: #050505;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050505;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #111116;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff9900;
+  }
+}
+
+@layer utilities {
+  .text-glow-orange {
+    text-shadow: 0 0 15px rgba(255, 153, 0, 0.4);
+  }
+  .text-glow-blue {
+    text-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+  }
+  .bg-glow-radial {
+    background: radial-gradient(circle at center, rgba(255, 153, 0, 0.1) 0%, rgba(0, 210, 255, 0.03) 50%, transparent 100%);
+  }
+  .glassmorphism {
+    background: rgba(10, 10, 12, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .glassmorphism-premium {
+    background: linear-gradient(135deg, rgba(12, 12, 16, 0.8) 0%, rgba(3, 3, 5, 0.9) 100%);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  }
+  .serif-italic {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+}
+
+/* Custom dynamic grid styling */
+.grid-bg-overlay {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+/* Custom utilities for horizontal/vertical gradient connections */
+.glow-line-vertical {
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 31, 31, 0.5), rgba(255, 77, 77, 0.5), transparent);
+}
+.glow-line-horizontal {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 31, 31, 0.5), rgba(255, 77, 77, 0.5), transparent);
+}
+
+.text-gradient-orange-blue {
+  background: linear-gradient(to right, #FF1F1F, #FF4D4D, #FF1F1F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-neon-glow {
+  text-shadow:
+    0 0 5px rgba(255, 31, 31, 0.7),
+    0 0 15px rgba(255, 31, 31, 0.5),
+    0 0 30px rgba(255, 31, 31, 0.4);
+}
+
+.text-neon-glow-strong {
+  color: #FF1F1F;
+  text-shadow:
+    0 0 10px #FF1F1F,
+    0 0 25px rgba(255, 31, 31, 0.7),
+    0 0 45px rgba(255, 31, 31, 0.5);
+}
+
+.border-neon-glow {
+  border: 1px solid rgba(255, 31, 31, 0.3);
+  box-shadow: 
+    0 0 10px rgba(255, 31, 31, 0.15),
+    inset 0 0 5px rgba(255, 31, 31, 0.05);
+  transition: all 0.4s ease;
+}
+
+.border-neon-glow:hover {
+  border-color: rgba(255, 31, 31, 0.8);
+  box-shadow: 
+    0 0 20px rgba(255, 31, 31, 0.5),
+    inset 0 0 10px rgba(255, 31, 31, 0.25);
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.85;
+    box-shadow: 0 0 10px #FF1F1F, 0 0 25px rgba(255, 31, 31, 0.6);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 18px #FF1F1F, 0 0 35px rgba(255, 31, 31, 0.9);
+  }
+}
+
+.neon-light-strip {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FF1F1F, #FF4D4D, #FF1F1F, transparent);
+  box-shadow: 0 0 10px #FF1F1F, 0 0 25px rgba(255, 31, 31, 0.8);
+  animation: pulse-glow 3s ease-in-out infinite;
+}
